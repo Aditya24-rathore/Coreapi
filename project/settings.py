@@ -117,7 +117,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+import os
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Existing settings...
+STATIC_URL = '/static/'
+
+# Add this for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Optional (only if you have extra static folders in dev)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
