@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(0*d3wrnbrlcslv7!00wpnbad))ue9__#w3i&yg#$kbc*9b!bo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['coreapi-ijqj.onrender.com']
+ALLOWED_HOSTS = ['coreapi-ijqj.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -136,3 +136,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}

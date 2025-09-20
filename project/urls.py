@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('list/', list.as_view(), name='list'),
     # path('detail/<int:pk>/',detail.as_view(),name='detail'),
-    path('',include(router.urls))
+    path('',include(router.urls)),
+    path('api-auth/', include('rest_framework.urls'))
 ]

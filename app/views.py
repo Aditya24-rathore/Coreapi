@@ -190,9 +190,15 @@ from rest_framework import viewsets
 #     def delete(self, request, *args, **kwargs):
 #         return self.destroy(request, *args, **kwargs)
 
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 class StudentVs(viewsets.ModelViewSet):
     """
     A simple ViewSet for viewing and editing accounts.
     """
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
